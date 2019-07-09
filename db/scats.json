@@ -1,0 +1,44 @@
+{
+  "scats": {
+    "scat1": {
+      "location": "NSS",
+      "weight": "10g",
+      "color": "brown",
+      "sampleNum": "Toxic Sample #1",
+      "animal": "elephant",
+      "uid": "LgaNdAguCBUEURA45090OpnqcD92"
+    },
+    "scat2": {
+      "location": "Dog Park",
+      "weight": "30g",
+      "color": "yellow",
+      "sampleNum": "Poopie",
+      "animal": "dog",
+      "uid": "LgaNdAguCBUEURA45090OpnqcD92"
+    },
+    "scat3": {
+      "location": "House",
+      "weight": "15g",
+      "color": "green",
+      "sampleNum": "whoah",
+      "animal": "cat",
+      "uid": "LgaNdAguCBUEURA45090OpnqcD92"
+    },
+    "scat4": {
+      "location": "House",
+      "weight": "15g",
+      "color": "green",
+      "sampleNum": "",
+      "animal": "cat",
+      "uid": ""
+    },
+    "scat5": {
+      "location": "House",
+      "weight": "15g",
+      "color": "green",
+      "sampleNum": "",
+      "animal": "cat",
+      "uid": ""
+    }
+  }
+}

@@ -1,25 +1,43 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import firebase from 'firebase/app';
+import 'firebase/auth';
 
+import ScatCard from '../ScatCard/ScatCard';
+import PooData from '../../helpers/data/PooData';
 import './Home.scss';
 
 class Home extends React.Component {
+
   state = {
+    poos: [],
   }
 
-  editEvent = (e) => {
-    e.preventDefault();
-    const orderId = '12345';
-    this.props.history.push(`/edit/${orderId}`)
+  getPoops = () => {
+    PooData.getPoos(firebase.auth().currentUser.uid)
+      .then(poos => this.setState({ poos }))
+      .catch(err => console.error('couldnt get poo', err))
+  }
+
+  componentDidMount = () => {
+    this.getPoops();
+  }
+
+  deleteScat = (pooId) => {
+    PooData.deletePoos(pooId)
+      .then(() => this.getPoops())
+      .catch(err => console.error(err))
   }
 
   render() {
-    const singleLink = '/scat/12345';
+    const makePooCards = this.state.poos.map((poo) => (
+      <ScatCard key={poo.id} poo={poo} deleteScat={this.deleteScat}/>
+    ))
     return (
-      <div className="Home">
+      <div className="Home container">
           <h1>this is home</h1>
-          <button className="btn btn-danger" onClick={this.editEvent}>Edit a thing</button>
-          <Link to={singleLink}>View Single</Link>
+          <div className="row d-flex justify-content-between">
+          {makePooCards}
+          </div>
       </div>
     );
   }
